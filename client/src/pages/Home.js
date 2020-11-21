@@ -22,6 +22,7 @@ class Home extends Component {
     });
   };
 
+  // getBooks saves all the data from the api call and stores it in State
   getBooks = () => {
     API.getBooks(this.state.q)
       .then(res =>
