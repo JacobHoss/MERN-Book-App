@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
-import Card from "../components/Card";
 import Book from "../components/Book";
-import Footer from "../components/Footer";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List } from "../components/List";
@@ -45,9 +43,8 @@ class Saved extends Component {
         </Row>
         <Row>
           <Col size="md-12">
-            <Card title="Saved Books" icon="download">
               {this.state.books.length ? (
-                <List>
+                <ul>
                   {this.state.books.map(book => (
                     <Book
                       key={book._id}
@@ -67,14 +64,12 @@ class Saved extends Component {
                       )}
                     />
                   ))}
-                </List>
+                </ul>
               ) : (
                 <h2 className="text-center">No Saved Books</h2>
               )}
-            </Card>
           </Col>
         </Row>
-        <Footer />
       </Container>
     );
   }

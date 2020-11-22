@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
-import Card from "../components/Card";
 import Form from "../components/Form";
 import Book from "../components/Book";
-import Footer from "../components/Footer";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List } from "../components/List";
@@ -70,20 +68,17 @@ class Home extends Component {
             </Jumbotron>
           </Col>
           <Col size="md-12">
-            <Card title="Book Search" icon="far fa-book">
               <Form
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
                 q={this.state.q}
               />
-            </Card>
           </Col>
         </Row>
         <Row>
           <Col size="md-12">
-            <Card title="Results">
               {this.state.books.length ? (
-                <List>
+                <ul>
                   {this.state.books.map(book => (
                     <Book
                       key={book.id}
@@ -103,14 +98,12 @@ class Home extends Component {
                       )}
                     />
                   ))}
-                </List>
+                </ul>
               ) : (
                 <h2 className="text-center">{this.state.message}</h2>
               )}
-            </Card>
           </Col>
         </Row>
-        <Footer />
       </Container>
     );
   }
